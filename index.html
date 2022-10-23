@@ -6,27 +6,22 @@
     <link rel="stylesheet" href="style.css"/>
     <title>Cookie Clicker | 0</title>
 </head>
+
 <body>
-	<!-- <div class="animation-area">
-		<img src="images/bitcoin.png" alt="" class="bitcoin1">
-		<img src="images/bitcoin.png" alt="" class="bitcoin2">
-		<img src="images/bitcoin.png" alt="" class="bitcoin3">
-		<img src="images/bitcoin.png" alt="" class="bitcoin4">
-		<img src="images/bitcoin.png" alt="" class="bitcoin5">
-		<img src="images/bitcoin.png" alt="" class="bitcoin6">
-		<img src="images/bitcoin.png" alt="" class="bitcoin7">
-	</div> -->
+
 	<div class="saving">
 		<button class="import" onclick="game.saving.openBox('import')">Import</button>
 		<button class="export" onclick="game.saving.openBox('export')">Export</button>
 	  <button class="export wipe" onclick="game.saving.wipeSave()">Wipe Save</button>
 	</div>
+
 	<div class="importExportBox">
 		<div>
 			<textarea id="saveBox" maxlength="5000"></textarea>
 			<button onclick="game.saving.closeBox()">Close</button>
 		</div>
 	</div>
+
 	<div class="cookieContainer">
 		<b class="cookieDisplay">0</b></br>
 		cps : <b class="cpsDisplay">0</b> | cpc : <b class="cpcDisplay">0</b>
@@ -36,11 +31,12 @@
 
 	<div class="imgcoin">
 		<ul class="coin">
-			<li><img src="images/bitcoin.png" alt="" id="coin1"></li>
-			<li><img src="images/bitkub.png" alt="" id="coin2"></li>
-			<li><img src="images/etheriun.png" alt="" id="coin3"></li>
 			<li><img src="images/doge.png" alt="" id="coin4"></li>
 			<li><img src="images/shiba.png" alt="" id="coin5"></li>
+			<li><img src="images/etheriun.png" alt="" id="coin3"></li>
+			<li><img src="images/bitcoin.png" alt="" id="coin1"></li>
+			<li><img src="images/stella.png" alt=""></li>
+			<li><img src="images/somdej.png" alt="" id="coin2"></li>
 		</ul>
 	</div>
 
@@ -49,16 +45,8 @@
 		<div class="shop"></div>
 	</div>
 
-
-	
-	
-	<!-- <li>Cookies : <b class="cookieDisplay">0</b></li>
-	<li>Cookies per click : <b class="cpcDisplay">0</b></li>
-	<li>Cookies per sec : <b class="cpsDisplay">0</b></li>
-	<li>Earned : <b class="earnedDisplay">0</b></li>
-	<li>Spent : <b class="spentDisplay">0</b></li>
-	<li>Clicked : <b class="clickedDisplay">0</b></li> -->
 	<script src="base64.js"></script>
 	<script src="game.js"></script>
 </body>
+
 </html>

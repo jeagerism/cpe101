@@ -106,9 +106,6 @@ class Building {
     html += `<button onclick="game.buyBuilding('${
       this.name
     }', 1);">Buy x1</br><b>${format(this.cost)}</b></button>`;
-    // html += `<button onclick="game.buyBuilding('${this.name}', 5);">Buy x5</br><b>${format(this.getCost(5))}</b></button>`;
-    // html += `<button onclick="game.buyBuilding('${this.name}', 10);">Buy x10</br><b>${format(this.getCost(10))}</b></button>`;
-    // html += '</div>';
     return html;
   }
 
@@ -125,12 +122,6 @@ class Building {
             upgrade.desc
           }</br><b>${format(upgrade.cost)}</b></button>`;
         } else {
-          //   if (notMet == false) {
-          //     notMet = true;
-          //     html += `</br><button class="upgNext">Next upgrade in <b>${
-          //       upgrade.limit - this.amount
-          //     }</b> more ${this.name.toLowerCase()}(s)</button>`;
-          //   }
         }
       }
     });
@@ -143,13 +134,17 @@ class Building {
     if (this.specialCPS > 0) {
       singleEffect += this.specialCPS / this.amount;
     }
-    let html = `<b>${this.name}</b></br>You have <b>${
+    let html = `<b>${this.name}</b>
+    
+    </br>You have <b>${
       this.amount
-    }</b> ${this.name.toLowerCase()}(s).</br>Each ${this.name.toLowerCase()} produces <b>${format(
+    }</b> ${this.name.toLowerCase()}(s). Each ${this.name.toLowerCase()} produces <b>${format(
       singleEffect
-    )}</b> cookie(s).</br>All of your ${this.name.toLowerCase()}(s) combined produces <b>${format(
+    )}</b> cookie(s). </br>All of your ${this.name.toLowerCase()}(s) combined produces <b>${format(
       this.effect
-    )}</b> cookie(s).</br>${this.generateBuyButtons()}</br>${this.generateUpgradeButtons()}`;
+    )}</b> cookie(s). ${this.generateBuyButtons()} ${this.generateUpgradeButtons()}
+    
+    `;
     return html;
   }
 }
@@ -214,19 +209,13 @@ let game = {
     new Building("Grandma", 100, 1, [
       new Upgrade("Forwards from grandma", 1000, 1),
     ]),
-    new Building("Farm", 1100, 8, [
-      new Upgrade("Cheap hoes", 11000, "Farms are twice as efficient", 1),
-    ]),
-    new Building("Mine", 12000, 47, [
-      new Upgrade("Sugar gas", 120000, "Mines are twice as efficient", 1),
+    new Building("Farm", 1100, 8, [new Upgrade("Cheap hoes", 11000, 1)]),
+    new Building("Mine", 12000, 47, [new Upgrade("Sugar gas", 120000, 1)]),
+    new Building("Factory", 130000, 260, [
+      new Upgrade("Sturdier conveyor belts", 1300000, 1),
     ]),
     new Building("Factory", 130000, 260, [
-      new Upgrade(
-        "Sturdier conveyor belts",
-        1300000,
-        "Factories are twice as efficient",
-        1
-      ),
+      new Upgrade("Sturdier conveyor belts", 1300000, 1),
     ]),
   ],
   utilities: {
