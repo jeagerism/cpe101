@@ -361,7 +361,7 @@ let game = {
           "Are you sure you want to wipe your save? This cannot be reversed!"
         )
       ) {
-        game.player.cookies = 0;
+        game.player.cookies = 1000000000;
         game.player.cookieStats.Earned = 0;
         game.player.cookieStats.Spent = 0;
         game.player.cookieStats.Clicked = 0;
