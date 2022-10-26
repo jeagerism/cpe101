@@ -54,21 +54,21 @@ class Building {
     let multiplier = 1;
     let buildingCount = game.utilities.getBuildingCount();
     this.specialCPS = 0;
-    if (this.name == "Cursor") {
+    if (this.name == "DOGE") {
       game.player.aMPC = 1;
     }
     this.upgrades.forEach((upgrade) => {
       if (upgrade.owned == true) {
         if (upgrade.special == false) {
           multiplier *= 2;
-          if (this.name == "Cursor") {
+          if (this.name == "DOGE") {
             player.aMPC *= 2;
           }
         } else {
           // Special casing for all special types of upgrades
           // There may at some point be more than just cursors here, as theres special stuff for grandmas as well.
           switch (this.name) {
-            case "Cursor":
+            case "DOGE":
               let nonCursorBuildingCount = buildingCount - this.amount;
               this.specialCPS +=
                 upgrade.special * nonCursorBuildingCount * this.amount;
@@ -205,43 +205,16 @@ let game = {
   },
   buildings: [
     // Generate all buildings here
-    new Building("Cursor", 15, 0.1, [new Upgrade("X1", 100, 1)], false),
-    new Building("Grandma", 100, 1, [
-      new Upgrade("Forwards from grandma", 1000, 1),
-    ]),
-    new Building("Farm", 1100, 8, [new Upgrade("Cheap hoes", 11000, 1)]),
-    new Building("Mine", 12000, 47, [new Upgrade("Sugar gas", 120000, 1)]),
-    new Building("Factory", 130000, 260, [
-      new Upgrade("Sturdier conveyor belts", 1300000, 1),
-    ]),
-    new Building("Factory", 130000, 260, [
-      new Upgrade("Sturdier conveyor belts", 1300000, 1),
-    ]),
+    new Building("DOGE", 15, 5, [], false),
+    new Building("SHIBA", 100, 1, []),
+    new Building("ETH", 1100, 8, []),
+    new Building("BTC", 12000, 47, []),
+    new Building("STELLA", 130000, 260, []),
+    new Building("SOMDEJ", 130000, 260, []),
   ],
+
   utilities: {
-    ShortNumbers: [
-      "K",
-      "M",
-      "B",
-      "T",
-      "Qua",
-      "Qui",
-      "Sex",
-      "Sep",
-      "Oct",
-      "Non",
-      "Dec",
-      "Und",
-      "Duo",
-      "Tre",
-      "QuaD",
-      "QuiD",
-      "SexD",
-      "SepD",
-      "OctD",
-      "NonD",
-      "Vig",
-    ],
+    ShortNumbers: ["K", "M", "B", "T"],
     updateText(className, text) {
       let elements = document.getElementsByClassName(className);
       for (var i in elements) {
@@ -393,7 +366,7 @@ let game = {
         game.player.cookieStats.Spent = 0;
         game.player.cookieStats.Clicked = 0;
         game.buildings.forEach((building) => {
-          if (building.name != "Cursor") {
+          if (building.name != "DOGE") {
             building.locked = true;
           }
           building.amount = 0;
@@ -405,7 +378,7 @@ let game = {
           }
         });
         game.constructShop();
-        game.updateShop("Cursor");
+        game.updateShop("DOGE");
         game.settings.recalculateCPS = true;
       }
     },
@@ -483,7 +456,7 @@ let game = {
     });
     game.utilities.updateText("shopList", finalHtml);
   },
-  currentShop: "Cursor",
+  currentShop: "DOGE",
   updateShop(name) {
     game.currentShop = name;
     let finalHtml = "";
