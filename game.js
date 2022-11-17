@@ -376,7 +376,7 @@ let game = {
         game.updateShop("DOGE");
         game.settings.recalculateCPS = true;
       }
-      window.location.href = "/bb/index.html";
+      window.location.href = "index2.html";
     },
     importing: false,
     openBox(type) {
