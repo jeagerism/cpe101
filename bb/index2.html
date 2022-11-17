@@ -124,12 +124,44 @@
   </head>
 
   <body onload="init()" onresize="" style="font-family: times new roman">
-    <div>
-      Usage: Perform bubble sort for a list of integers. click the Next button
-      to move the index to the next position to perform a swap if necessary.
-      Click the Reset button to start over with a new random list.
+    <div class="btn">
+      <form>
+        <label for="num" id="label">แต้มที่ได้!(K)</label>
+        <input type="number" id="num" />
+
+        <input type="button" value="Enter" id="btn1" />
+      </form>
     </div>
-    <div style="height: 70px; font-size: 200%"></div>
+
+    <script>
+      const num = document.getElementById("num");
+      const btn1 = document.getElementById("btn1");
+
+      // Handle number changes
+      num.addEventListener("input", function () {
+        // ...
+        // As a string
+        let val = num.value;
+
+        // As a number
+        let valAsNumber = parseFloat(num.value);
+
+        // listValues[9] = 1000;
+      });
+    </script>
+
+    <div id="bbsort">
+      <h2>How good is Bubble sort มันดียังไง?</h2>
+      <p id="parag">
+        ก็คงรู้กันแล้วว่าวิธีการนี้เป็นวิธีการที่มีความซับซ้อนน้อยที่สุด <br />
+        เนื่องจากเรามีเพียงข้อมูลแถวเดียวและเปรียบเทียบทีละ2ตัวเรื่อย ๆ
+        แต่ความง่ายก็ใช่ว่าจะดีเสมอไป <br />
+        Bubble sort
+        จะเป็นวิธีที่มีประสิทธิภาพสูงเมื่อข้อมูลที่เราได้มีการเรียงกันเกือบจะสมบูรณ์แล้ว
+        การสลับกันของข้อมูลจึงต่ำทำให้การทำงานเร็วขึ้น <br />
+        <h3>แต่...นรกจะเกิดขึ้น เมื่อข้อมูลของเราเรียงกันแบบสลับกันโดยสิ้นเชิง หรือมีข้อมูลมาก</h3> 
+      </p>
+    </div>
     <div id="iValue" style="position: absolute; height: 100px">i: 1</div>
     <div
       id="iPosition"
@@ -140,7 +172,7 @@
 
     <div style="display: table; overflow: hidden; width: 90%; margin: 0 auto">
       <script>
-        SIZE = 16;
+        SIZE = 10;
         for (var i = 0; i < SIZE; i++) {
           document.writeln(
             '<div style="display: table-cell; vertical-align: middle;' +
@@ -148,7 +180,7 @@
               'width: 30px; height: 30px; min-width: 15px; max-width: 30px;  text-align: center;">' +
               '<div id="list' +
               i +
-              '" style="color: black; weight: bold">45</div>' +
+              '" style="color: black; weight: bold">70</div>' +
               "</div>"
           );
         }
@@ -160,8 +192,8 @@
         for (var i = 0; i < SIZE; i++) {
           document.writeln(
             '<div style="display: table-cell; vertical-align: middle;' +
-              "border: 1px white solid; background: white;" +
-              'width: 30px; height: 10px; max-width: 15px; text-align: center;">' +
+              "border: 1% white solid; background: white;" +
+              'width: 1%; height: 1%; max-width: 15px; text-align: center;">' +
               '<div id="check' +
               i +
               '" style="color: #EB0D1B; weight: bold"></div>' +
@@ -187,9 +219,9 @@
       <div id="sortedFly"></div>
     </div>
 
-    <div align="center">
+    <div align="center" id="buttoN">
       <button id="step" type="button" class="button" onclick="step()">
-        Next
+         Next.
       </button>
       <button id="reset" type="button" class="button" onclick="reset()">
         Reset
@@ -211,6 +243,32 @@
       >
         A list is filled with random numbers.
       </span>
+    </div>
+
+    <button class="show-modal">ผู้จัดทำ</button>
+
+    <div class="overlay hidden"></div>
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <div class="imgcoin">
+        <ul class="coin">
+          <li><img src="/game/images/fluk.PNG" alt="" id="coin4" /></li>
+          <li><img src="/game/images/tonnam.PNG" alt="" id="coin5" /></li>
+          <li><img src="/game/images/pecth.PNG" alt="" id="coin3" /></li>
+          <li><img src="/game/images/zun.PNG" alt="" id="coin1" /></li>
+        </ul>
+      </div >
+      <h1>สมาชิกกลุ่ม BBS</h1>
+      <p id="pID">
+        <h2>นาย กฤษณะ สุขจร</h2>
+        <li>Full Stack And The God of JavaScript</li>
+        <h2>นาย คุณวุฒิ แก้วนพรัตน์</h2>
+        <li>Present</li>
+        <h2>นาย อติพล เดชาติวงศ์ ณ อยุธยา</h2>
+        <li>Designer and Power point</li>
+        <h2>นาย ปุญญาพัฒน์ จันทะคุณ</h2>
+        <li>Back-End</li>
+      </p>
     </div>
 
     <script>
@@ -259,14 +317,18 @@
 
       function setRandomValue() {
         listValues = [];
-        for (var i = 0; i < SIZE; i++) {
-          listValues.push(Math.floor(Math.random() * 100));
+        for (var i = 0; i < SIZE - 1; i++) {
+          listValues.push(Math.floor(Math.random() * 1000));
         }
+        listValues[9] = num.value;
+
         for (var i = 0; i < SIZE; i++) {
           id = "list" + i;
           document.getElementById(id).innerHTML = listValues[i];
         }
       }
+
+      btn1.addEventListener("click", setRandomValue);
 
       var k = 1;
       var current = -1;
@@ -446,6 +508,47 @@
           listValues[minPosition];
         document.getElementById("highlight").style.visibility = "visible";
       }
+
+      const modal = document.querySelector(".modal");
+      const overlay = document.querySelector(".overlay");
+      const btnCloseModal = document.querySelector(".close-modal");
+      const btnOpenModal = document.querySelectorAll(".show-modal");
+      console.log(btnOpenModal);
+
+      const openModal = function () {
+        console.log("Button clicked");
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+      };
+      const closeModal = function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+      };
+
+      for (
+        let i = 0;
+        i < btnOpenModal.length;
+        i++ //วนจนจบ แล้วนำค่ามาlog ข้างนอก
+      )
+        btnOpenModal[i].addEventListener("click", openModal);
+
+      btnCloseModal.addEventListener("click", closeModal);
+
+      overlay.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", function (e) {
+        // console.log('A key was press');
+        console.log(e.key); //เมื่อกด จะแสดงฟังชัน โดยแทน eเป็น อาร์กิวเมน แล้วคอนโซลค่า ที่กดลงไป
+
+        if (e.key === "f") {
+          console.log("f was pressed");
+
+          //ถ้าไม่มีคลาสคอนเทนเนอร์ ที่ซ่อนอยู่ใน modal
+          if (!modal.classList.contains("hidden")) {
+            closeModal();
+          }
+        }
+      });
     </script>
   </body>
 </html>

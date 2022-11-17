@@ -127,7 +127,6 @@ class Building {
     });
     return html;
   }
-
   generateShopHTML() {
     let format = game.utilities.formatNumber;
     let singleEffect = this.baseEffect * this.multiplier;
@@ -205,12 +204,12 @@ let game = {
   },
   buildings: [
     // Generate all buildings here
-    new Building("DOGE", 15, 5, [], false),
-    new Building("SHIBA", 100, 1, []),
-    new Building("ETH", 1100, 8, []),
-    new Building("BTC", 12000, 47, []),
-    new Building("STELLA", 130000, 260, []),
-    new Building("SOMDEJ", 1, 260, []),
+    new Building("DOGE", 15, 1, [], false),
+    new Building("SHIBA", 20, 2, []),
+    new Building("ETH", 30, 8, []),
+    new Building("BTC", 50, 20, []),
+    new Building("STELLA", 100, 50, []),
+    new Building("SOMDEJ", 500, 600, []),
   ],
 
   utilities: {
@@ -356,11 +355,7 @@ let game = {
       }
     },
     wipeSave() {
-      if (
-        confirm(
-          "Are you sure you want to wipe your save? This cannot be reversed!"
-        )
-      ) {
+      if (confirm(`จำเลขของคุณไว้เพื่อไปคีย์ ${game.player.cookies}`)) {
         game.player.cookies = 0;
         game.player.cookieStats.Earned = 0;
         game.player.cookieStats.Spent = 0;
@@ -381,6 +376,7 @@ let game = {
         game.updateShop("DOGE");
         game.settings.recalculateCPS = true;
       }
+      window.location.href = "/bb/index2.html";
     },
     importing: false,
     openBox(type) {
@@ -497,5 +493,4 @@ let game = {
     game.logic();
   },
 };
-
 game.start();

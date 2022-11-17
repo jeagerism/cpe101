@@ -80,7 +80,7 @@ function getElementPos(element) {
 
 function HighLight() {
   this.width = 318;
-  this.height = 10;
+  this.height = 20;
   this.top = 77;
   this.left = 62;
 }
