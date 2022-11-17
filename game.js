@@ -210,7 +210,7 @@ let game = {
     new Building("ETH", 1100, 8, []),
     new Building("BTC", 12000, 47, []),
     new Building("STELLA", 130000, 260, []),
-    new Building("SOMDEJ", 130000, 260, []),
+    new Building("SOMDEJ", 1, 260, []),
   ],
 
   utilities: {
