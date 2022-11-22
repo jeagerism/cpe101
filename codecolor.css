@@ -271,7 +271,7 @@ p {
   font-size: 1.8rem;
 }
 
-.coin li img {
+#coin li img {
   width: 100%;
   height: 100%;
 }
@@ -284,7 +284,7 @@ p {
   padding: 0%;
   margin: 0%;
 }
-.coin li {
+#coin li {
   list-style: none;
   display: inline-block;
   max-width: 100vw;
