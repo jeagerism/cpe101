@@ -29,7 +29,7 @@ h1 {
   width: 100%;
   height: 350px;
   text-align: center;
-  margin-top: 3%;
+  margin-top: 5%;
 }
 
 .cookieButton {
@@ -100,7 +100,7 @@ h1 {
 }
 
 .imgcoin {
-  margin-top: 15%;
+  margin-top: 20%;
 }
 
 .imgcoin .coin {
@@ -125,8 +125,8 @@ h1 {
 .shop {
   float: left;
   display: block;
-  margin-top: 1%;
-  margin-left: 1%;
+  margin-top: 3%;
+  margin-left: 3%;
   width: 100%;
 }
 
@@ -164,7 +164,7 @@ h1 {
   position: absolute;
   width: 100%;
   left: 5px;
-  top: 5px;
+  top: 10px;
 }
 
 .saving button {
