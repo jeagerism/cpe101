@@ -268,6 +268,7 @@ body {
   max-width: 250px;
   max-height: 350px;
   box-shadow: 0 40px 60px -6px black;
+  border-radius: 5%;
 }
 
 .card-title {
@@ -304,11 +305,4 @@ body {
 .card:hover .card-desc {
   opacity: 1;
   height: 100%;
-}
-
-h1 {
-  font-size: 2.8rem;
-  color: #fff;
-  margin: 40px 0 20px 0;
-  text-align: center;
 }
