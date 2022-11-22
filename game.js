@@ -494,3 +494,30 @@ let game = {
   },
 };
 game.start();
+
+// prevent zooming from double tapping on iOS
+window.lastTouchTimestamp = 0;
+document.addEventListener(
+  "touchstart",
+  function (event) {
+    const nowTouchTimestamp = new Date().getTime();
+    const tapDelayThreshold = 300;
+    const tapDelay = nowTouchTimestamp - window.lastTouchTimestamp;
+    if (tapDelay <= tapDelayThreshold) {
+      event.preventDefault();
+    }
+    window.lastTouchTimestamp = nowTouchTimestamp;
+  },
+  { passive: false }
+);
+
+// prevent zooming from pinching on iOS
+document.addEventListener(
+  "touchmove",
+  function (event) {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  },
+  { passive: false }
+);
