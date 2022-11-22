@@ -272,8 +272,8 @@ p {
 }
 
 .coin li img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 .imgcoin {
@@ -289,7 +289,7 @@ p {
   display: inline-block;
   max-width: 100vw;
   height: 70px;
-  margin-left: 10%;
+  margin-left: 8%;
 
   /* margin-left: 7.2%; */
 }
